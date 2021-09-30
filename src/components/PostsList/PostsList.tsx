@@ -65,7 +65,8 @@ export const PostsList: React.FC<Props> = (props) => {
         <h3>Selected user has not posted anything yet :(</h3>
       )}
 
-      <ul className="PostsList__list">
+      {filteredPosts.length > 0 ? (
+        <ul className="PostsList__list">
         {filteredPosts.map(post => (
           <li className="PostsList__item" key={post.id}>
             <div>
@@ -91,6 +92,9 @@ export const PostsList: React.FC<Props> = (props) => {
         </li>
         ))}
       </ul>
+      ) : (
+        <h3>Nothing is found by such query...</h3>
+      )}
     </div>
   )
 };
